@@ -1,38 +1,101 @@
-.App {
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.header {
   text-align: center;
+  height: 15rem;
+  background-image: url('https://cdn.pixabay.com/photo/2023/08/15/21/03/cross-8192852_1280.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header h1 {
+  font-size: 2rem;
+  font-weight: bolder;
+  padding-top: 1px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header .form {
+  width: 70%;
+  height: 3rem;
+  margin-left: 15%;
+  margin-top: 2rem;
+  background-color: white;
+  border-radius: 2cap;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header .form input {
+  width: 93%;
+  height: 3rem;
+  border-radius: 2cap;
+  margin-left: -0.5%;
+  
 }
 
-.App-link {
-  color: #61dafb;
+input:focus {
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header .form button {
+  width: 5%;
+}
+
+.memes-container {
+  width: 95%;
+  margin-left: 2.5%;
+  margin-top: 1rem;
+}
+
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  grid-gap: 10px;
+  margin-top: 1rem;
+}
+
+.item-imagee {
+  height: 30rem;
+  background-color: aliceblue;
+}
+
+.item-image img:hover {
+  scale: 102%;
+}
+
+.pagination {
+  margin-left: 2.5%;
+  margin: 1rem;
+}
+
+.li-panging {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  background-color: bisque;
+  margin: 2px;
+
+  border-radius: 2cap;
+}
+
+.li-panging button {
+  width: 100%;
+  border-radius: 2cap;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
