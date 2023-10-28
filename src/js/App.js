@@ -14,7 +14,7 @@ function App() {
 
   const getImagesData = async () => {
     try {
-      setLoading(true); // Bắt đầu quá trình tải ảnh
+      setLoading(true);
       const response = await axios.get(
         `https://api.unsplash.com/search/photos?client_id=${API_KEY}&query=${queryStr}&page=${page}&per_page=${perPage}`
       );
@@ -23,7 +23,7 @@ function App() {
     } catch (error) {
       console.error("Error fetching images:", error);
     } finally {
-      setLoading(false); // Kết thúc quá trình tải ảnh
+      setLoading(false);
     }
   };
 
@@ -53,9 +53,9 @@ function App() {
     };
   }, [loading]);
 
-  // first create the interface with the default parameters
   useEffect(() => {
     async function getFirstImages() {
+      setLoading(true);
       try {
         const firstState = await await axios.get(
           `https://api.unsplash.com/search/photos?client_id=${API_KEY}&query=animals&page=${page}&per_page=${perPage}`
@@ -63,6 +63,8 @@ function App() {
         setImages(firstState.data.results);
       } catch (error) {
         console.error("Error fetching images:", error);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -74,8 +76,7 @@ function App() {
       <div className="header">
         <h1 className="content-header font-mono">SEARCH IMAGES</h1>
         <h2 className="content-header">
-          Over 4.2 million+ high-quality stock images shared by our talented
-          community.
+          A lot of high-quality stock images shared by our talented community.
         </h2>
 
         <div className="form">
